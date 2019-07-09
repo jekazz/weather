@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="action_settings">Settings</string>
+    <string name="query_error">An error has occured</string>
+    <string name="title_activity_forecast">ForecastActivity</string>
+    <string name="moscow">Moscow</string>
+    <string name="petersburg">St. Petersburg</string>
+    <string name="open_weather_api_key">ae5a0d04766ca2c59e526fedf8d56254</string>
+    <string name="btn_add_city">Add city</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/tools">
+    <data>
+        <variable name="weather" type="pro.siberian.test.weather.model.CityWeather"/>
+    </data>
+    <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                                       card_view:cardCornerRadius="4dp"
+                                       android:layout_margin="5dp"
+                                       android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/degree"
+                    android:text='@{String.valueOf(weather.main.temp) + " C"}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cityName" android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                    android:id="@+id/cityName"
+                    android:text='@{weather.name}'
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/degree"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                    android:id="@+id/wind"
+                    android:text='@{String.valueOf(weather.wind.speed) + " m/s"}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/cityName"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                    android:id="@+id/humidity"
+                    android:text='@{String.valueOf(weather.main.humidity) + "%"}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/cityName"
+                    app:layout_constraintStart_toEndOf="@+id/wind"
+                    android:layout_marginStart="8dp"/>
+
+            <TextView
+                    android:text='@{String.valueOf(weather.main.pressure / 10000) + " MPa"}'
+                    android:id="@+id/pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/cityName"
+                    app:layout_constraintStart_toEndOf="@+id/humidity"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
